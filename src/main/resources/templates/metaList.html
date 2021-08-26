@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"/>
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>문서 이름</th>
+                <th>카테고리</th>
+                <th>부서</th>
+                <th>일자</th>
+                <th>Host</th>
+                <th>문서 경로</th>
+                <th>원본 txt 파일</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="metaData : ${metaDataList}">
+                <td th:text="${metaData.title}"></td>
+                <td th:text="${metaData.label}"></td>
+                <td th:text="${metaData.dep}"></td>
+                <td th:text="${metaData.timestamp}"></td>
+                <td th:text="${metaData.host}">
+                <td th:text="${metaData.path}"></td>
+                <td th:text="${metaData.text_file_name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+</html>
